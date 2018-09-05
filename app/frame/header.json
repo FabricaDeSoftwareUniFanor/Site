@@ -1,7 +1,6 @@
 {
     "element":{
         "style": {
-            "mix-blend-mode": "difference",
             "color": "white"
         }
     },
@@ -18,42 +17,24 @@
                     },
                     "arrayAppObject":[
                         {
-                            "type": "ComponentItem",
-                            "element":{
-                                "style":{
-                                    "vertical-align": "-webkit-baseline-middle",
-                                    "opacity": "1",
-                                    "display": "inline-flex",
-                                    "padding": "5px"
-                                },
-                                "className": "ClassNeon ClassPulse"
-                            },
-                            "arrayAppObject":[
+                            "type": "ComponentFontAwesome",
+                            "arrayAppObjectEvent":[
                                 {
-                                    "type": "ComponentInformation",
-                                    "element":{
-                                        "style":{
-                                            "width":"100%",
-                                            "height":"100%"
-                                        },
-                                        "href": "https://www.youtube.com/channel/UCqcixwWXyd6VPGGgGPbeIFg"
-                                    },
-                                    "arrayAppObject":[
-                                        {
-                                            "type":"ComponentImg",
-                                            "element":{
-                                                "style":{
-                                                    "-webkit-filter":"invert(1)",
-                                                    "filter":"invert(1)",
-                                                    "width":"30px",
-                                                    "height":"30px"
-                                                },
-                                                "src":"images/logo.svg"
-                                            }
-                                        }
-                                    ]
+                                    "name": "router",
+                                    "appObject":{},
+                                    "link":"home"
                                 }
-                            ]
+                            ],
+                            "element": {
+                                "style": {
+                                    "display":"inline-flex",
+                                    "vertical-align":"-webkit-baseline-middle",
+                                    "opacity":"1",
+                                    "padding":"5px",
+                                    "font-size": "30px"
+                                },
+                                "className": "fas fa-industry ClassPulse"
+                            }
                         }
                     ]
                 },
@@ -68,20 +49,14 @@
                         {
                             "type":"ComponentInformation",
                             "information":"title",
-                            "arrayAppObjectEvent":[
-                                {
-                                    "name": "router",
-                                    "appObject":{},
-                                    "link":"home"
-                                }
-                            ],
                             "element":{
                                 "className":"ClassFuturisticIAndII",
                                 "style":{
                                     "display":"block",
                                     "width":"100%",
                                     "font-size":"40px"
-                                }
+                                },
+                                "href": "https://www.google.com/search?q=fabrica+de+software"
                             }
                         }
                     ]
@@ -104,7 +79,7 @@
                                     "padding":"5px",
                                     "font-size":"30px"
                                 },
-                                "className":"ClassNeon"
+                                "className":"ClassPulse"
                             },
                             "arrayAppObjectEvent":[
                                 {
