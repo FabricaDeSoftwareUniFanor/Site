@@ -6,7 +6,7 @@ import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 require('dotenv').config();
 
 if (process.env.WEBPACK_PRODUCTION === undefined) {
-    process.env.WEBPACK_PRODUCTION = '';
+    process.env.WEBPACK_PRODUCTION = '0';
 }
 
 const config: webpack.Configuration = {
