@@ -5,16 +5,20 @@ import * as CompressionPlugin from 'compression-webpack-plugin';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 require('dotenv').config();
 
+if (process.env.WEBPACK_PRODUCTION === undefined) {
+    process.env.WEBPACK_PRODUCTION = '';
+}
+
 const config: webpack.Configuration = {
     entry: './app/code/imports/imports.js',
-    output:{
+    output: {
         libraryTarget: 'commonjs',
         path: path.resolve(__dirname, 'dist'),
         filename: 'app.js',
         publicPath: '/dist/'
     },
-    resolve:{
-        extensions:[
+    resolve: {
+        extensions: [
             '.webpack.js',
             '.webpack.ts',
             '.web.js',
@@ -25,11 +29,11 @@ const config: webpack.Configuration = {
         ]
     },
     module: {
-        rules:[
+        rules: [
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
-                include:[
+                include: [
                     path.resolve(__dirname, 'node_modules'),
                     path.resolve(__dirname, 'app/style'),
                     path.resolve(__dirname, 'app/style/fonts')
@@ -44,19 +48,23 @@ const config: webpack.Configuration = {
     plugins: []
 };
 
-if(JSON.parse(process.env.WEBPACK_PRODUCTION)){
+if (config.plugins === undefined) {
+    config.plugins = [];
+}
+
+if (JSON.parse(process.env.WEBPACK_PRODUCTION)) {
     console.log('Production');
     config.plugins.push(
         new UglifyJSPlugin({
-            parallel:true
+            parallel: true
         })
     );
     config.plugins.push(
         new CompressionPlugin({
-            minRatio:1
+            minRatio: 1
         })
     );
-}else{
+} else {
     console.log('Development');
     config.devtool = 'inline-source-map';
     config.plugins.push(

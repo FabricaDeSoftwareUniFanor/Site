@@ -4,6 +4,7 @@
   "description": "FS Website",
   "main": "api/server.js",
   "scripts": {
+    "preinstall": "",
     "postinstall": "tsc && webpack",
     "install": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,7 +27,7 @@
   "homepage": "https://github.com/FabricaDeSoftwareUniFanor/site#readme",
   "dependencies": {
     "backapijh": "^0.2.63",
-    "backappjh": "^0.2.47",
+    "backappjh": "^0.2.48",
     "dotenv": "^6.0.0"
   },
   "devDependencies": {

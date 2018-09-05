@@ -1,6 +1,6 @@
 function check(){
     let img = document.createElement('img');
-    let _self = this;
+    let _self:any = this;
     img.onload = _self.isOnline;
     img.onerror = _self.isOffline;
     img.src = 'http://localhost:3000/image/logo.svg';
