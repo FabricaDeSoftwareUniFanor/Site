@@ -1,18 +1,22 @@
 [
     {
         "language":"en",
-        "title":"FS"
+        "title":"SF",
+        "logoff":"Logoff"
     },
     {
         "language":"en-US",
-        "title":"FS"
+        "title":"SF",
+        "logoff":"Logoff"
     },
     {
         "language":"pt",
-        "title":"FS"
+        "title":"FS",
+        "logoff":"Logoff"
     },
     {
         "language":"pt-BR",
-        "title":"FS"
+        "title":"FS",
+        "logoff":"Logoff"
     }
 ]
