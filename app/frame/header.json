@@ -85,7 +85,7 @@
                                 {
                                     "name":"router",
                                     "appObject":{},
-                                    "link":"language"
+                                    "link":"languageSettings"
                                 }
                             ],
                             "arrayAppObject":[

@@ -3,6 +3,24 @@ import { ControlLogin } from '../control/controlLogin';
 
 export class Login extends AppObject {
 
+    private static instance: Login;
+
+    public static getInstance(father?: Component): Login {
+        if (!Login.instance) {
+            Login.instance = new Login(father);
+        }
+        return Login.instance;
+    }
+
+    constructor(father?: Component) {
+        super(father);
+        this.init();
+    }
+
+    private init() {
+
+    }
+
     public signIn(component) {
         console.log('signIn');
         let divisor: Component = <Component>(<ComponentPageBody>component.getFather().getFather().getFather());
