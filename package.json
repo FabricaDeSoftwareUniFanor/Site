@@ -1,7 +1,7 @@
 {
   "name": "fs",
   "version": "1.0.0",
-  "description": "FS Website ",
+  "description": "FS Website",
   "main": "api/server.js",
   "scripts": {
     "preinstall": "",
