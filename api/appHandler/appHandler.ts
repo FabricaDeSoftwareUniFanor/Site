@@ -8,5 +8,7 @@ export class AppHandler extends BasicAppHandler {
 
     public configSocket(basicSocket: BasicSocket){
         let _self = this;
+        basicSocket.on('signUp', (user) => { _self.hardwareHandler.signUp(user, basicSocket); });
+        basicSocket.on('signIn', (user) => { _self.hardwareHandler.signIn(user, basicSocket); });
     }
 }

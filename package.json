@@ -29,7 +29,8 @@
   "dependencies": {
     "backapijh": "^0.2.63",
     "backappjh": "^0.2.63",
-    "dotenv": "^6.0.0"
+    "dotenv": "^6.0.0",
+    "flexiblepersistence": "^1.0.22"
   },
   "devDependencies": {
     "@types/webpack": "^4.4.11",
