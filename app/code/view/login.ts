@@ -3,15 +3,7 @@ import { ControlLogin } from '../control/controlLogin';
 
 export class Login extends AppObject {
 
-    private static instance: Login;
-    private subscribersSign: Array<any>;
-
-    public static getInstance(father?: Component): Login {
-        if (!Login.instance) {
-            Login.instance = new Login(father);
-        }
-        return Login.instance;
-    }
+    
 
     constructor(father?: Component) {
         super(father);
@@ -20,7 +12,6 @@ export class Login extends AppObject {
 
     private init() {
         let _self = this;
-        _self.subscribersSign = new Array<any>();
     }
 
     public signIn(component) {
@@ -68,30 +59,19 @@ export class Login extends AppObject {
         console.log('goToLogin');
     }
 
-    public isLogged(element){
-        console.log('isLogged');
-        return ControlLogin.getInstance().isLogged(element);
-    }
-
     public logout(){
         console.log('logout');
     }
 
     public subscribeSign(callback) {
-        // we could check to see if it is already subscribed
-        this.subscribersSign.push(callback);
-        console.log(callback.name, 'has been subscribed to UserManegement Sign');
+        ControlLogin.getInstance().subscribeSign(callback);
     }
 
     public unsubscribeSign(callback) {
-        this.subscribersSign = this.subscribersSign.filter((element) => {
-            return element !== callback;
-        });
+        ControlLogin.getInstance().unsubscribeSign(callback);
     }
 
     public publishSign(data) {
-        this.subscribersSign.forEach((subscriber) => {
-            subscriber(data);
-        });
+        ControlLogin.getInstance().publishSign(data);
     }
 }

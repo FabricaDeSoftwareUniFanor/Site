@@ -12,12 +12,24 @@ export class Header extends AppObject {
 
     }
 
-    public isLogged(element){
+    public isLogged(){
         console.log('isLogged');
-        return ControlLogin.getInstance().isLogged(element);
+        return ControlLogin.getInstance().isLogged();
     }
 
     public logout(element){
         console.log('logout');
+    }
+
+    public subscribeSign(callback) {
+        ControlLogin.getInstance().subscribeSign(callback);
+    }
+
+    public unsubscribeSign(callback) {
+        ControlLogin.getInstance().unsubscribeSign(callback);
+    }
+
+    public publishSign(data) {
+        ControlLogin.getInstance().publishSign(data);
     }
 }

@@ -159,7 +159,7 @@ export class ControlLogin extends AppObject {
         // (<ComponentNotification>this.header.arrayAppObject[1]).goToNotification(message);
     }
 
-    public isLogged(element){
+    public isLogged(){
         console.log('isLogged');
         return false;
     }

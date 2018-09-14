@@ -174,8 +174,8 @@
                                                             "name": "authorization",
                                                             "appObject": {},
                                                             "subscribeFunction": "subscribeSign",
-                                                            "runFunction": "isLogged(this)",
-                                                            "code": "Login"
+                                                            "runFunction": "isLogged()",
+                                                            "code": "Header"
                                                         }
                                                     ],
                                                     "element": {
