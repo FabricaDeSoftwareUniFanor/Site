@@ -11,6 +11,13 @@ export class HardwareHandler extends BasicHardwareHandler {
 
     constructor(){
         super();
+        let database = new Database(process.env.POCKET_DOC_READ_DB, process.env.POCKET_DOC_READ_DB_HOST,
+            parseInt(process.env.POCKET_DOC_READ_DB_PORT, 10), process.env.POCKET_DOC_DB,
+            process.env.POCKET_DOC_DB);
+        let database2 = new Database(process.env.POCKET_DOC_EVENT_DB, process.env.POCKET_DOC_EVENT_DB_HOST,
+            parseInt(process.env.POCKET_DOC_EVENT_DB_PORT, 10), process.env.POCKET_DOC_DB,
+            process.env.POCKET_DOC_DB);
+        this.persistenceHandler = new Handler(database, database2);
     }
 
     public getExternalHandler(){
