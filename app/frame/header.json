@@ -7,6 +7,14 @@
     "arrayAppObject":[
         {
             "type": "ComponentMenuHorizontal",
+            "arrayAppObjectEvent": [
+                {
+                    "name": "build",
+                    "appObject": {},
+                    "runFunction": "goToLogin()",
+                    "code": "Login"
+                }
+            ],
             "arrayAppObject":[
                 {
                     "type": "ComponentLeftHolder",
@@ -114,7 +122,7 @@
                                     "name": "click",
                                     "appObject": {},
                                     "runFunction": "goToLogin()",
-                                    "code": "Header"
+                                    "code": "Login"
                                 }
                             ],
                             "arrayAppObject": [
@@ -161,6 +169,13 @@
                                                             "name": "click",
                                                             "runFunction": "logout(this)",
                                                             "code": "Header"
+                                                        },
+                                                        {
+                                                            "name": "authorization",
+                                                            "appObject": {},
+                                                            "subscribeFunction": "subscribeSign",
+                                                            "runFunction": "isLogged(this)",
+                                                            "code": "Login"
                                                         }
                                                     ],
                                                     "element": {
