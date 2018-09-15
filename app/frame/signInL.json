@@ -4,7 +4,7 @@
         "signIn":"Sign In",
         "signUp":"Sign Up",
         "user":"User",
-        "username":"User",
+        "email":"Email",
         "password":"Password"
     },
     {
@@ -12,7 +12,7 @@
         "signIn":"Sign In",
         "signUp":"Sign Up",
         "user":"User",
-        "username":"User",
+        "email":"Email",
         "password":"Password"
     },
     {
@@ -20,7 +20,7 @@
         "signIn":"Logar",
         "signUp":"Registrar",
         "user":"Usuário",
-        "username":"Usuário",
+        "email":"Email",
         "password":"Senha"
     },
     {
@@ -28,7 +28,7 @@
         "signIn":"Logar",
         "signUp":"Registrar",
         "user":"Usuário",
-        "username":"Usuário",
+        "email":"Email",
         "password":"Senha"
     }
 ]

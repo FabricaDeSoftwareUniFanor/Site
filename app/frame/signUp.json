@@ -15,8 +15,7 @@
                 "text-align": "center",
                 "justify-content": "center",
                 "display": "flex",
-                "align-items": "center",
-                "mix-blend-mode": "difference"
+                "align-items": "center"
             }
         },
         "arrayAppObject": [
@@ -24,13 +23,10 @@
                 "type": "ComponentFontAwesome",
                 "element": {
                     "style": {
-                        "color": "rgba(0,0,0,0.3)",
-                        "color": "rgba(255,255,255,0.3)",
-                        "color": "rgba(0,0,0,0.1)",
                         "color": "rgba(255,255,255,0.1)",
                         "font-size": "70vw"
                     },
-                    "className": "fas fa-user-md"
+                    "className": "fas fa-industry"
                 }
             }
         ]
@@ -214,65 +210,6 @@
                                     "type": "ComponentDataInput",
                                     "element": {
                                         "style": {
-                                            "display": "block",
-                                            "padding": "5px",
-                                            "width": "100%",
-                                            "box-sizing": "border-box"
-                                        }
-                                    },
-                                    "arrayAppObject": [
-                                        {
-                                            "type": "ComponentComboBox",
-                                            "element": {
-                                                "style": {
-                                                    "color": "white",
-                                                    "width": "100%",
-                                                    "border": "1px solid white",
-                                                    "opacity": 1
-                                                },
-                                                "placeholder": "role"
-                                            },
-                                            "arrayAppObject": [
-                                                {
-                                                    "type": "ComponentOption",
-                                                    "element": {
-                                                        "value":"",
-                                                        "selected": true,
-                                                        "hidden": true,
-                                                        "disabled": true
-                                                    },
-                                                    "information": "role"
-                                                },
-                                                {
-                                                    "type": "ComponentOption",
-                                                    "element": {
-                                                        "value":"0"
-                                                    },
-                                                    "information": "user"
-                                                },
-                                                {
-                                                    "type": "ComponentOption",
-                                                    "element": {
-                                                        "value":"1"
-                                                    },
-                                                    "information": "operator"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "ComponentDivisor",
-                            "element": {
-                                "style": {}
-                            },
-                            "arrayAppObject": [
-                                {
-                                    "type": "ComponentDataInput",
-                                    "element": {
-                                        "style": {
                                             "display": "inline-flex",
                                             "padding": "5px",
                                             "width": "33%",
@@ -288,7 +225,7 @@
                                                     "border-bottom": "1px solid white",
                                                     "opacity": 1
                                                 },
-                                                "placeholder": "username"
+                                                "placeholder": "email"
                                             }
                                         }
                                     ]

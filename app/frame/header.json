@@ -8,12 +8,7 @@
         {
             "type": "ComponentMenuHorizontal",
             "arrayAppObjectEvent": [
-                {
-                    "name": "build",
-                    "appObject": {},
-                    "runFunction": "goToLogin()",
-                    "code": "Login"
-                }
+                {}
             ],
             "arrayAppObject":[
                 {
@@ -121,8 +116,8 @@
                                 {
                                     "name": "click",
                                     "appObject": {},
-                                    "runFunction": "goToLogin()",
-                                    "code": "Login"
+                                    "runFunction": "goToSignIn()",
+                                    "code": "SignIn"
                                 }
                             ],
                             "arrayAppObject": [
@@ -166,15 +161,15 @@
                                                     "type": "ComponentInformation",
                                                     "arrayAppObjectEvent": [
                                                         {
-                                                            "name": "click",
-                                                            "runFunction": "logout(this)",
-                                                            "code": "Header"
+                                                            "name": "router",
+                                                            "appObject":{},
+                                                            "link":"signUp"
                                                         },
                                                         {
                                                             "name": "authorization",
                                                             "appObject": {},
                                                             "subscribeFunction": "subscribeSign",
-                                                            "runFunction": "isLogged()",
+                                                            "runFunction": "isSignedOut()",
                                                             "code": "Header"
                                                         }
                                                     ],
@@ -190,7 +185,67 @@
                                                         },
                                                         "className": "ClassPulse ClassOpenSans"
                                                     },
-                                                    "information": "logoff"
+                                                    "information": "signUp"
+                                                },
+                                                {
+                                                    "type": "ComponentInformation",
+                                                    "arrayAppObjectEvent": [
+                                                        {
+                                                            "name": "router",
+                                                            "appObject":{},
+                                                            "link":"signIn"
+                                                        },
+                                                        {
+                                                            "name": "authorization",
+                                                            "appObject": {},
+                                                            "subscribeFunction": "subscribeSign",
+                                                            "runFunction": "isSignedOut()",
+                                                            "code": "Header"
+                                                        }
+                                                    ],
+                                                    "element": {
+                                                        "style": {
+                                                            "vertical-align": "-webkit-baseline-middle",
+                                                            "color": "white",
+                                                            "opacity": "1",
+                                                            "padding": "5px",
+                                                            "display": "block",
+                                                            "font-size": "16px",
+                                                            "-webkit-font-smoothing": "antialiased"
+                                                        },
+                                                        "className": "ClassPulse ClassOpenSans"
+                                                    },
+                                                    "information": "signIn"
+                                                },
+                                                {
+                                                    "type": "ComponentInformation",
+                                                    "arrayAppObjectEvent": [
+                                                        {
+                                                            "name": "click",
+                                                            "runFunction": "signOut(this)",
+                                                            "code": "Header"
+                                                        },
+                                                        {
+                                                            "name": "authorization",
+                                                            "appObject": {},
+                                                            "subscribeFunction": "subscribeSign",
+                                                            "runFunction": "isSigned()",
+                                                            "code": "Header"
+                                                        }
+                                                    ],
+                                                    "element": {
+                                                        "style": {
+                                                            "vertical-align": "-webkit-baseline-middle",
+                                                            "color": "white",
+                                                            "opacity": "1",
+                                                            "padding": "5px",
+                                                            "display": "block",
+                                                            "font-size": "16px",
+                                                            "-webkit-font-smoothing": "antialiased"
+                                                        },
+                                                        "className": "ClassPulse ClassOpenSans"
+                                                    },
+                                                    "information": "signOut"
                                                 }
                                             ]
                                         }

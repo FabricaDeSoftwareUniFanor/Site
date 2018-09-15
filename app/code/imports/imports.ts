@@ -1,8 +1,8 @@
 import * as loader from './../onLoad/loader';
 import { LanguageSettings } from '../view/languageSettings';
-import { Login } from '../view/login';
+import { SignIn } from '../view/signIn';
 import { Header } from '../view/header';
-import { ControlLogin } from '../control/controlLogin';
+import { ControlSign } from '../control/ControlSign';
 try { require('./../../style/app.css'); } catch (e) { console.log('Error CSS'); };
 
 let w: any = window;
@@ -13,7 +13,7 @@ w.FontAwesomeConfig = {
 export {
     loader,
     LanguageSettings,
-    Login,
-    ControlLogin,
+    SignIn,
+    ControlSign,
     Header
 };

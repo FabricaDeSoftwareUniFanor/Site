@@ -15,8 +15,7 @@
                 "text-align": "center",
                 "justify-content": "center",
                 "display": "flex",
-                "align-items": "center",
-                "mix-blend-mode": "difference"
+                "align-items": "center"
             }
         },
         "arrayAppObject": [
@@ -24,13 +23,10 @@
                 "type": "ComponentFontAwesome",
                 "element": {
                     "style": {
-                        "color": "rgba(0,0,0,0.3)",
-                        "color": "rgba(255,255,255,0.3)",
-                        "color": "rgba(0,0,0,0.1)",
                         "color": "rgba(255,255,255,0.1)",
                         "font-size": "70vw"
                     },
-                    "className": "fas fa-user-md"
+                    "className": "fas fa-industry"
                 }
             }
         ]
@@ -85,7 +81,7 @@
                                                     "border-bottom": "1px solid white",
                                                     "opacity": 1
                                                 },
-                                                "placeholder": "username"
+                                                "placeholder": "email"
                                             }
                                         }
                                     ]

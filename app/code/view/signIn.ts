@@ -1,9 +1,7 @@
 import { AppObject, Component, ComponentPageBody } from 'backappjh';
-import { ControlLogin } from '../control/controlLogin';
+import { ControlSign } from '../control/ControlSign';
 
-export class Login extends AppObject {
-
-    
+export class SignIn extends AppObject {
 
     constructor(father?: Component) {
         super(father);
@@ -22,9 +20,9 @@ export class Login extends AppObject {
         arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[1].arrayAppObject[0].arrayAppObject[0]).getElement());
         console.log(divisor, arrayField[0].value, arrayField[1].value);
         if (!this.checkArrayEmpty(arrayField)) {
-            ControlLogin.getInstance().signIn({ username: arrayField[0].value, password: arrayField[1].value });
+            ControlSign.getInstance().signIn({ username: arrayField[0].value, password: arrayField[1].value });
         } else {
-            ControlLogin.getInstance().notificationMissingFields();
+            ControlSign.getInstance().notificationMissingFields();
         }
     }
 
@@ -55,23 +53,23 @@ export class Login extends AppObject {
         field.setAttribute('style', 'border-bottom-color: white');
     }
 
-    public goToLogin(){
+    public goToSignIn(){
         console.log('goToLogin');
     }
 
-    public logout(){
-        console.log('logout');
+    public signOut(){
+        ControlSign.getInstance().signOut();
     }
 
     public subscribeSign(callback) {
-        ControlLogin.getInstance().subscribeSign(callback);
+        ControlSign.getInstance().subscribeSign(callback);
     }
 
     public unsubscribeSign(callback) {
-        ControlLogin.getInstance().unsubscribeSign(callback);
+        ControlSign.getInstance().unsubscribeSign(callback);
     }
 
     public publishSign(data) {
-        ControlLogin.getInstance().publishSign(data);
+        ControlSign.getInstance().publishSign(data);
     }
 }

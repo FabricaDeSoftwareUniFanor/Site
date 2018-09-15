@@ -1,5 +1,5 @@
 import { AppObject, Component, ComponentPageBody } from 'backappjh';
-import { ControlLogin } from '../control/controlLogin';
+import { ControlSign } from '../control/ControlSign';
 
 export class Header extends AppObject {
 
@@ -12,24 +12,28 @@ export class Header extends AppObject {
 
     }
 
-    public isLogged(){
+    public isSigned(){
         console.log('isLogged');
-        return ControlLogin.getInstance().isLogged();
+        return ControlSign.getInstance().isSigned();
     }
 
-    public logout(element){
-        console.log('logout');
+    public isSignedOut(){
+        return !ControlSign.getInstance().isSigned();
+    }
+
+    public signOut(element){
+        ControlSign.getInstance().signOut();
     }
 
     public subscribeSign(callback) {
-        ControlLogin.getInstance().subscribeSign(callback);
+        ControlSign.getInstance().subscribeSign(callback);
     }
 
     public unsubscribeSign(callback) {
-        ControlLogin.getInstance().unsubscribeSign(callback);
+        ControlSign.getInstance().unsubscribeSign(callback);
     }
 
     public publishSign(data) {
-        ControlLogin.getInstance().publishSign(data);
+        ControlSign.getInstance().publishSign(data);
     }
 }

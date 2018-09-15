@@ -1,18 +1,18 @@
 import { AppObject, Component, ComponentItem, ComponentDataInput, ComponentOption, ComponentPageBody, ComponentView, ComponentComboBox, ComponentInformation, AppObjectEvent/*, ComponentNotification*/ } from 'backappjh';
 import { BasicSocket, UniqueSocket } from 'basicsocket';
 
-export class ControlLogin extends AppObject {
-    private static instance: ControlLogin;
+export class ControlSign extends AppObject {
+    private static instance: ControlSign;
     private socketIo: BasicSocket;
     private headerView;
     private subscribers: Array<any>;
     private subscribersSign: Array<any>;
 
-    public static getInstance(father?: Component): ControlLogin {
-        if (!ControlLogin.instance) {
-            ControlLogin.instance = new ControlLogin(father);
+    public static getInstance(father?: Component): ControlSign {
+        if (!ControlSign.instance) {
+            ControlSign.instance = new ControlSign(father);
         }
-        return ControlLogin.instance;
+        return ControlSign.instance;
     }
 
     constructor(father?: Component) {
@@ -26,7 +26,7 @@ export class ControlLogin extends AppObject {
         _self.subscribers = new Array<any>();
         _self.subscribersSign = new Array<any>();
         _self.socketIo = UniqueSocket.getInstance().getBasicSocket();
-        _self.subscribe((data) => { _self.log(data); });
+        _self.subscribe((data) => { _self.sign(data); });
         // _self.headerView = divisor.getHeader();
     }
 
@@ -66,25 +66,25 @@ export class ControlLogin extends AppObject {
         });
     }
 
-    public log(data) {
-        let controlLogin;
+    public sign(data) {
+        let controlSign;
         if (this !== undefined) {
-            controlLogin = this;
+            controlSign = this;
         } else {
-            controlLogin = ControlLogin.getInstance();
+            controlSign = ControlSign.getInstance();
         }
         if (data.userManegement !== undefined) {
             if (data.userManegement.user !== undefined) {
-                controlLogin.notificationNone();
-                controlLogin.goTo('home');
-                controlLogin.refreshHeader();
-                controlLogin.getInfo(data.userManegement.user);
+                controlSign.notificationNone();
+                controlSign.goTo('home');
+                controlSign.refreshHeader();
+                controlSign.getInfo(data.userManegement.user);
             } else if (data.userManegement.error !== undefined) {
-                controlLogin.notificationCustom(data.userManegement.error);
+                controlSign.notificationCustom(data.userManegement.error);
             }
 
-            controlLogin.logged = data.userManegement.user;
-            controlLogin.publishSign(data.userManegement.user !== undefined);
+            controlSign.logged = data.userManegement.user;
+            controlSign.publishSign(data.userManegement.user !== undefined);
         }
     }
 
@@ -159,8 +159,12 @@ export class ControlLogin extends AppObject {
         // (<ComponentNotification>this.header.arrayAppObject[1]).goToNotification(message);
     }
 
-    public isLogged(){
-        console.log('isLogged');
+    public isSigned(){
+        console.log('isSigned');
         return false;
+    }
+
+    public signOut(){
+        console.log('signOut');
     }
 }
