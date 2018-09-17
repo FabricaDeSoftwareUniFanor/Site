@@ -106,11 +106,12 @@ export class Util extends AppObject {
     }
 
     public goTo(page: string) {
-        console.log('Á');
+        // console.log('Á');
         let pageBody;
         pageBody = Util.getInstance().getCurrentPageBody();
         pageBody.goTo(page);
-        console.log('Á4');
+        Util.getInstance().notificationNone()
+        // console.log('Á4');
     }
 
     public getInfo(user/*: User*/) {
