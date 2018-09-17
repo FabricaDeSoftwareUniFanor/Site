@@ -1,12 +1,15 @@
 import { AppObject, Component, ComponentItem, ComponentDataInput, ComponentOption, ComponentPageBody, ComponentView, ComponentComboBox, ComponentInformation, AppObjectEvent/*, ComponentNotification*/ } from 'backappjh';
 import { BasicSocket, UniqueSocket } from 'basicsocket';
+import { User } from '../user/user';
+import { Util } from '../view/util';
 
 export class ControlSign extends AppObject {
     private static instance: ControlSign;
     private socketIo: BasicSocket;
-    private headerView;
+    // private headerView;
     private subscribers: Array<any>;
     private subscribersSign: Array<any>;
+    private tempUser: User;
 
     public static getInstance(father?: Component): ControlSign {
         if (!ControlSign.instance) {
@@ -28,6 +31,14 @@ export class ControlSign extends AppObject {
         _self.socketIo = UniqueSocket.getInstance().getBasicSocket();
         _self.subscribe((data) => { _self.sign(data); });
         // _self.headerView = divisor.getHeader();
+    }
+
+    public getTempUser() {
+        return this.tempUser;
+    }
+
+    public setTempUser(user: User) {
+        this.tempUser = user;
     }
 
     public subscribeSign(callback) {
@@ -143,20 +154,13 @@ export class ControlSign extends AppObject {
     }
 
     public signIn(log) {
-        this.notificationNone();
+        Util.getInstance().notificationNone();
         this.socketIo.emit('signIn', log);
     }
 
-    public notificationMissingFields() {
-        this.notificationCustom('missingFields');
-    }
-
-    public notificationNone() {
-        this.notificationCustom('none');
-    }
-
-    public notificationCustom(message) {
-        // (<ComponentNotification>this.header.arrayAppObject[1]).goToNotification(message);
+    public signUp(log) {
+        Util.getInstance().notificationNone();
+        this.socketIo.emit('signUp', log);
     }
 
     public isSigned(){

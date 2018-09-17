@@ -328,14 +328,14 @@
                                         {
                                             "name": "click",
                                             "appObject": {},
-                                            "runFunction": "createUser(this)",
-                                            "code": "UserManegement"
+                                            "runFunction": "signUp(this)",
+                                            "code": "SignUp"
                                         },
                                         {
                                             "name": "build",
                                             "appObject": {},
                                             "runFunction": "getUsernameAndPassword(this)",
-                                            "code": "UserManegement"
+                                            "code": "SignUp"
                                         }
                                     ],
                                     "element": {
