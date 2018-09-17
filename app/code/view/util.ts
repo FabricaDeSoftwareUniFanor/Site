@@ -1,5 +1,5 @@
 import { AppObject, Component, ComponentPageBody } from 'backappjh';
-import { ControlSign } from '../control/ControlSign';
+// import { ControlSign } from '../control/ControlSign';
 
 export class Util extends AppObject {
     private static instance: Util;
@@ -74,5 +74,59 @@ export class Util extends AppObject {
 
     public notificationCustom(message) {
         // (<ComponentNotification>this.header.arrayAppObject[1]).goToNotification(message);
+    }
+
+    private refreshHeader() {
+        let header: Component;
+        let pageBody;
+        if (this !== undefined) {
+            header = this.getHeader();
+            pageBody = this.getPageBody();
+        } else {
+            // header = UserManegement.getInstance().getHeader();
+            // pageBody = UserManegement.getInstance().getPageBody();
+        }
+        if (header !== undefined) {
+            header.getFather();
+        } else {
+            header = pageBody.getFather().header;
+        }
+
+        // (<Component>header.arrayAppObject[0]).insert(header.getElement());
+    }
+
+    private goTo(page: string) {
+        let header;
+        let pageBody;
+        if (this !== undefined) {
+            header = this.getHeader();
+            pageBody = this.getPageBody();
+        } else {
+            // header = UserManegement.getInstance().getHeader();
+            // pageBody = UserManegement.getInstance().getPageBody();
+        }
+        if (pageBody !== undefined) {
+            // console.log('pageBody', pageBody);
+            pageBody.goToPage(page);
+        } else if (header !== undefined) {
+            // pageBody = (<ComponentView>header.getFather()).pageBody;
+            // console.log('pageBody H', pageBody);
+            pageBody.goToPage(page);
+        }
+    }
+
+    public getInfo(user/*: User*/) {
+        // let menuDivisor = this.getHeader().arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0];
+
+        // let username = <AppObject>menuDivisor.arrayAppObject[0].arrayAppObject[1].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0];
+        // let information = <ComponentInformation>username.arrayAppObject[0];
+        // information.getElement().innerHTML = user.authentication.username;
+
+        // let group = <AppObject>menuDivisor.arrayAppObject[0].arrayAppObject[2].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0].arrayAppObject[0];
+        // information = <ComponentInformation>group.arrayAppObject[0];
+        // let auth: Permission = user.authentication.permission;
+        // information.getElement().innerHTML = Permission[auth];
+        // information.information = Permission[auth];
+        // information.renderAfterUpdateJSON();
     }
 }

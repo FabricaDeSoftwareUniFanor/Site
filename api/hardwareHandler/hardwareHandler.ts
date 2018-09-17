@@ -50,11 +50,11 @@ export class HardwareHandler extends BasicHardwareHandler {
     public signUpCheck(user, data, socket) {
         console.log(user);
         if (data.length > 0) {
-            socket.emit('userManegement', { error: 'userExists' });
+            socket.emit('sign', { error: 'userExists' });
         } else {
             let event = new Event(Operation.add, 'user', user);
             this.persistenceHandler.addEvent(event);
-            socket.emit('userManegement', { user: user });
+            socket.emit('sign', { user: user });
         }
 
     }
@@ -78,11 +78,11 @@ export class HardwareHandler extends BasicHardwareHandler {
                 delete logged.authentication.salt;
                 socket.identification.user = logged;
                 socket.identification.device = user.device;
-                socket.emit('userManegement', { user: logged });
+                socket.emit('sign', { user: logged });
                 return;
             }
         }
         // console.log('ERROR')
-        socket.emit('userManegement', { error: 'wrongUser' });
+        socket.emit('sign', { error: 'wrongUser' });
     }
 }

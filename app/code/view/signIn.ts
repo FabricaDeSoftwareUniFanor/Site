@@ -27,6 +27,20 @@ export class SignIn extends AppObject {
         }
     }
 
+    public signUp(component) {//???
+        console.log('signIn');
+        let divisor: Component = <Component>(<ComponentPageBody>component.getFather().getFather().getFather());
+        let arrayField: Array<HTMLInputElement> = new Array<HTMLInputElement>();
+        arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[0].arrayAppObject[0].arrayAppObject[0]).getElement());
+        arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[1].arrayAppObject[0].arrayAppObject[0]).getElement());
+        console.log(divisor, arrayField[0].value, arrayField[1].value);
+        if (!Util.getInstance().checkArrayEmpty(arrayField)) {
+            ControlSign.getInstance().signIn({ username: arrayField[0].value, password: arrayField[1].value });
+        } else {
+            Util.getInstance().notificationMissingFields();
+        }
+    }
+
     public signOut(){
         ControlSign.getInstance().signOut();
     }

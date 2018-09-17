@@ -290,7 +290,7 @@
                                     "arrayAppObjectEvent": [
                                         {
                                             "name": "router",
-                                            "link": "login"
+                                            "link": "signIn"
                                         }
                                     ],
                                     "element": {
