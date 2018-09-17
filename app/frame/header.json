@@ -117,7 +117,7 @@
                                     "name": "click",
                                     "appObject": {},
                                     "runFunction": "goToSignIn()",
-                                    "code": "SignIn"
+                                    "code": "Header"
                                 }
                             ],
                             "arrayAppObject": [

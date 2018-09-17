@@ -48,12 +48,23 @@ export class SignUp extends AppObject {
         }
     }
 
-    public getUsernameAndPassword(component) {
+    public getPassword(component) {
+        console.log('GET');
+        console.log(ControlSign.getInstance().getTempUser());
         if (ControlSign.getInstance().getTempUser() !== undefined) {
-            // console.log(component);
-            let divisor: Component = <Component>(<ComponentPageBody>component.getFather().getFather().getFather());
-            (<HTMLInputElement>(<Component>divisor.arrayAppObject[4].arrayAppObject[0].arrayAppObject[0]).getElement()).value = ControlSign.getInstance().getTempUser().username;
-            (<HTMLInputElement>(<Component>divisor.arrayAppObject[4].arrayAppObject[1].arrayAppObject[0]).getElement()).value = ControlSign.getInstance().getTempUser().authentication.password;
+            console.log(component);
+            let father: Component = <Component>(component.getFather());
+            (<HTMLInputElement>father.getElement()).value = ControlSign.getInstance().getTempUser().authentication.password;
+        }
+    }
+
+    public getEmail(component) {
+        console.log('GET');
+        console.log(ControlSign.getInstance().getTempUser());
+        if (ControlSign.getInstance().getTempUser() !== undefined) {
+            console.log(component);
+            let father: Component = <Component>(component.getFather());
+            (<HTMLInputElement>father.getElement()).value = ControlSign.getInstance().getTempUser().email;
         }
     }
 

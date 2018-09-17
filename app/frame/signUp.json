@@ -219,6 +219,14 @@
                                     "arrayAppObject": [
                                         {
                                             "type": "ComponentTextField",
+                                            "arrayAppObjectEvent": [
+                                                {
+                                                    "name": "build",
+                                                    "appObject": {},
+                                                    "runFunction": "getEmail(this)",
+                                                    "code": "SignUp"
+                                                }
+                                            ],
                                             "element": {
                                                 "style": {
                                                     "color": "white",
@@ -243,6 +251,14 @@
                                     "arrayAppObject": [
                                         {
                                             "type": "ComponentTextField",
+                                            "arrayAppObjectEvent": [
+                                                {
+                                                    "name": "build",
+                                                    "appObject": {},
+                                                    "runFunction": "getPassword(this)",
+                                                    "code": "SignUp"
+                                                }
+                                            ],
                                             "element": {
                                                 "style": {
                                                     "color": "white",
@@ -329,12 +345,6 @@
                                             "name": "click",
                                             "appObject": {},
                                             "runFunction": "signUp(this)",
-                                            "code": "SignUp"
-                                        },
-                                        {
-                                            "name": "build",
-                                            "appObject": {},
-                                            "runFunction": "getUsernameAndPassword(this)",
                                             "code": "SignUp"
                                         }
                                     ],

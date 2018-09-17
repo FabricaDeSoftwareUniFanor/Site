@@ -22,20 +22,12 @@ export class Util extends AppObject {
         let _self = this;
     }
 
-    // public getCurrentHeader(){
-    //     return this.currentHeader;
-    // }
-
     public getCurrentPageBody(){
-        return this.currentPageBody;
+        return Util.getInstance().currentPageBody;
     }
 
-    // public setCurrentHeader(header){
-    //     this.currentHeader = header;
-    // }
-
     public setCurrentPageBody(pageBody){
-        this.currentPageBody = pageBody;
+        Util.getInstance().currentPageBody = pageBody;
     }
 
     public checkArrayEmpty(arrayField: Array<HTMLInputElement>) {
@@ -75,11 +67,11 @@ export class Util extends AppObject {
     }
 
     public goToSignUp(){
-        console.log('goToLogin');
+        Util.getInstance().goTo('signUp');
     }
 
     public goToSignIn(){
-        console.log('goToLogin');
+        Util.getInstance().goTo('signIn');
     }
 
     public notificationMissingFields() {
@@ -114,15 +106,11 @@ export class Util extends AppObject {
     }
 
     public goTo(page: string) {
+        console.log('Á');
         let pageBody;
-        if (this !== undefined) {
-            pageBody = this.getCurrentPageBody();
-        } else {
-            pageBody = Util.getInstance().getCurrentPageBody();
-        }
-        if (pageBody !== undefined) {
-            pageBody.goToPage(page);
-        }
+        pageBody = Util.getInstance().getCurrentPageBody();
+        pageBody.goTo(page);
+        console.log('Á4');
     }
 
     public getInfo(user/*: User*/) {

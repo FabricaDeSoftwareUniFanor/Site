@@ -1,5 +1,6 @@
 import { AppObject, Component, ComponentPageBody } from 'backappjh';
 import { ControlSign } from '../control/ControlSign';
+import { Util } from './util';
 
 export class Header extends AppObject {
 
@@ -10,6 +11,11 @@ export class Header extends AppObject {
 
     private init() {
 
+    }
+
+    public goToSignIn(){
+        Util.getInstance().setCurrentPageBody(this.getPageBody());
+        Util.getInstance().goToSignIn();
     }
 
     public isSigned(){

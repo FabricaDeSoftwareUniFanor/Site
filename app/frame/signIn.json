@@ -172,7 +172,7 @@
                                             "name": "click",
                                             "appObject": {},
                                             "runFunction": "signUp(this)",
-                                            "code": "SignUp"
+                                            "code": "SignIn"
                                         }
                                     ],
                                     "element": {
