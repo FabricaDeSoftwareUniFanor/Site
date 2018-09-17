@@ -15,6 +15,8 @@ export class SignIn extends AppObject {
 
     public signIn(component) {
         console.log('signIn');
+        // Util.getInstance().setCurrentHeader(this.getHeader());
+        Util.getInstance().setCurrentPageBody(this.getPageBody());
         let divisor: Component = <Component>(<ComponentPageBody>component.getFather().getFather().getFather());
         let arrayField: Array<HTMLInputElement> = new Array<HTMLInputElement>();
         arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[0].arrayAppObject[0].arrayAppObject[0]).getElement());

@@ -29,7 +29,7 @@ export class ControlSign extends AppObject {
         _self.subscribers = new Array<any>();
         _self.subscribersSign = new Array<any>();
         _self.socketIo = UniqueSocket.getInstance().getBasicSocket();
-        _self.socketIo.on('sign', (data) => { _self.publish({ userManegement: data }); });
+        _self.socketIo.on('sign', (data) => { _self.publish({ sign: data }); });
         _self.subscribe((data) => { _self.sign(data); });
         // _self.headerView = divisor.getHeader();
     }
@@ -45,7 +45,7 @@ export class ControlSign extends AppObject {
     public subscribeSign(callback) {
         // we could check to see if it is already subscribed
         this.subscribersSign.push(callback);
-        console.log(callback.name, 'has been subscribed to UserManegement Sign');
+        console.log(callback.name, 'has been subscribed to Sign');
     }
 
     public unsubscribeSign(callback) {
@@ -63,7 +63,7 @@ export class ControlSign extends AppObject {
     public subscribe(callback) {
         // we could check to see if it is already subscribed
         this.subscribers.push(callback);
-        console.log(callback.name, 'has been subscribed to UserManegement');
+        console.log(callback.name, 'has been subscribed to Sign');
     }
 
     public unsubscribe(callback) {
@@ -80,23 +80,24 @@ export class ControlSign extends AppObject {
 
     public sign(data) {
         let controlSign;
+        console.log('data:', data);
         if (this !== undefined) {
             controlSign = this;
         } else {
             controlSign = ControlSign.getInstance();
         }
-        if (data.userManegement !== undefined) {
-            if (data.userManegement.user !== undefined) {
+        if (data.sign !== undefined) {
+            if (data.sign.user !== undefined) {
                 Util.getInstance().notificationNone();
-                Util.getInstance().goTo('home');
+                Util.getInstance().goTo('signed');
                 Util.getInstance().refreshHeader();
-                Util.getInstance().getInfo(data.userManegement.user);
-            } else if (data.userManegement.error !== undefined) {
-                Util.getInstance().notificationCustom(data.userManegement.error);
+                Util.getInstance().getInfo(data.sign.user);
+            } else if (data.sign.error !== undefined) {
+                Util.getInstance().notificationCustom(data.sign.error);
             }
 
-            controlSign.logged = data.userManegement.user;
-            controlSign.publishSign(data.userManegement.user !== undefined);
+            controlSign.logged = data.sign.user;
+            controlSign.publishSign(data.sign.user !== undefined);
         }
     }
 

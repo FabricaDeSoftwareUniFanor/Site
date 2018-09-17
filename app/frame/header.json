@@ -128,7 +128,7 @@
                                             "vertical-align": "-webkit-baseline-middle",
                                             "color": "white",
                                             "opacity": "1",
-                                            "font-size": "30px"
+                                            "font-size": "25px"
                                         },
                                         "className": "ClassPulse fas fa-user"
                                     }

@@ -1,8 +1,10 @@
-import { AppObject, Component, ComponentPageBody } from 'backappjh';
+import { AppObject, Component, ComponentPageBody, ComponentView, ComponentRouter } from 'backappjh';
 // import { ControlSign } from '../control/ControlSign';
 
 export class Util extends AppObject {
     private static instance: Util;
+    private currentPageBody;
+    // private currentHeader;
 
     public static getInstance(father?: Component): Util {
         if (!Util.instance) {
@@ -18,6 +20,22 @@ export class Util extends AppObject {
 
     private init() {
         let _self = this;
+    }
+
+    // public getCurrentHeader(){
+    //     return this.currentHeader;
+    // }
+
+    public getCurrentPageBody(){
+        return this.currentPageBody;
+    }
+
+    // public setCurrentHeader(header){
+    //     this.currentHeader = header;
+    // }
+
+    public setCurrentPageBody(pageBody){
+        this.currentPageBody = pageBody;
     }
 
     public checkArrayEmpty(arrayField: Array<HTMLInputElement>) {
@@ -65,18 +83,18 @@ export class Util extends AppObject {
     }
 
     public notificationMissingFields() {
-        this.notificationCustom('missingFields');
+        Util.getInstance().notificationCustom('missingFields');
     }
 
     public notificationNone() {
-        this.notificationCustom('none');
+        Util.getInstance().notificationCustom('none');
     }
 
     public notificationCustom(message) {
-        // (<ComponentNotification>this.header.arrayAppObject[1]).goToNotification(message);
+        Util.getInstance().getCurrentPageBody().getNotification().goTo(message);
     }
 
-    private refreshHeader() {
+    public refreshHeader() {
         let header: Component;
         let pageBody;
         if (this !== undefined) {
@@ -95,22 +113,14 @@ export class Util extends AppObject {
         // (<Component>header.arrayAppObject[0]).insert(header.getElement());
     }
 
-    private goTo(page: string) {
-        let header;
+    public goTo(page: string) {
         let pageBody;
         if (this !== undefined) {
-            header = this.getHeader();
-            pageBody = this.getPageBody();
+            pageBody = this.getCurrentPageBody();
         } else {
-            // header = UserManegement.getInstance().getHeader();
-            // pageBody = UserManegement.getInstance().getPageBody();
+            pageBody = Util.getInstance().getCurrentPageBody();
         }
         if (pageBody !== undefined) {
-            // console.log('pageBody', pageBody);
-            pageBody.goToPage(page);
-        } else if (header !== undefined) {
-            // pageBody = (<ComponentView>header.getFather()).pageBody;
-            // console.log('pageBody H', pageBody);
             pageBody.goToPage(page);
         }
     }
