@@ -4,7 +4,7 @@ import { Authentication } from './authentication';
 
 export class User {
 
-    username: string;
+    // username: string;
     name: string;
     nickname: string;
     mother: string;
@@ -26,7 +26,7 @@ export class User {
         this.arrayAddress = new Array<Address>();
         this.arrayPhone = new Array<Phone>();
 
-        this.username = basicUser.username;
+        this.email = basicUser.email;
         this.name = basicUser.name;
         this.nickname = basicUser.nickname;
         this.mother = basicUser.mother;

@@ -17,6 +17,7 @@ export class SignUp extends AppObject {
     }
 
     public signUp(component) {
+        Util.getInstance().setCurrentPageBody(this.getPageBody());
         // console.log('createUser!!!');
         let divisor: Component = <Component>(<ComponentPageBody>component.getFather().getFather().getFather());
         let arrayField: Array<HTMLInputElement> = new Array<HTMLInputElement>();
@@ -25,26 +26,23 @@ export class SignUp extends AppObject {
         arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[1].arrayAppObject[1].arrayAppObject[0]).getElement());
         arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[2].arrayAppObject[0].arrayAppObject[0]).getElement());
         arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[2].arrayAppObject[1].arrayAppObject[0]).getElement());
+        // arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[3].arrayAppObject[0].arrayAppObject[0]).getElement());
         arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[3].arrayAppObject[0].arrayAppObject[0]).getElement());
-        arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[4].arrayAppObject[0].arrayAppObject[0]).getElement());
-        arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[4].arrayAppObject[1].arrayAppObject[0]).getElement());
-        arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[4].arrayAppObject[2].arrayAppObject[0]).getElement());
+        arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[3].arrayAppObject[1].arrayAppObject[0]).getElement());
+        arrayField.push(<HTMLInputElement>(<Component>divisor.arrayAppObject[3].arrayAppObject[2].arrayAppObject[0]).getElement());
         console.log(arrayField[0].value, arrayField[1].value, arrayField[2].value,
             arrayField[3].value, arrayField[4].value, arrayField[5].value,
-            arrayField[6].value, arrayField[7].value, arrayField[8].value);
+            arrayField[6].value, arrayField[7].value);
 
-        if (Util.getInstance().checkEquals(arrayField[7], arrayField[8]) && !Util.getInstance().checkArrayEmpty(arrayField)) {
-            let header = divisor.getHeader();
-            // (<ComponentNotification>header.arrayAppObject[1]).goToNotification('none');
-            let auth = new Authentication(arrayField[7].value, Permission.User);
-            let user = new User(arrayField[6].value, arrayField[0].value, new Date(arrayField[1].value), arrayField[2].value,
+        if (Util.getInstance().checkEquals(arrayField[6], arrayField[7]) && !Util.getInstance().checkArrayEmpty(arrayField)) {
+            Util.getInstance().notificationNone();
+            let auth = new Authentication(arrayField[6].value, Permission.User);
+            let user = new User(arrayField[5].value, arrayField[0].value, new Date(arrayField[1].value), arrayField[2].value,
                 arrayField[3].value, arrayField[4].value, auth);
-            // console.log(user);
-            // this.socketIo.emit('signUp', user);
+            console.log(user);
             ControlSign.getInstance().signUp(user);
         } else {
-            let header = divisor.getHeader();
-            // (<ComponentNotification>header.arrayAppObject[1]).goToNotification('missingFields');
+            Util.getInstance().notificationMissingFields();
         }
     }
 

@@ -6,10 +6,11 @@ import { Util } from '../view/util';
 export class ControlSign extends AppObject {
     private static instance: ControlSign;
     private socketIo: BasicSocket;
-    // private headerView;
     private subscribers: Array<any>;
     private subscribersSign: Array<any>;
+    private subscribersSignOut: Array<any>;
     private tempUser: User;
+    private signed;
 
     public static getInstance(father?: Component): ControlSign {
         if (!ControlSign.instance) {
@@ -28,10 +29,19 @@ export class ControlSign extends AppObject {
         // _self.tempObjectArray = new Array<any>();
         _self.subscribers = new Array<any>();
         _self.subscribersSign = new Array<any>();
+        _self.subscribersSignOut = new Array<any>();
         _self.socketIo = UniqueSocket.getInstance().getBasicSocket();
         _self.socketIo.on('sign', (data) => { _self.publish({ sign: data }); });
         _self.subscribe((data) => { _self.sign(data); });
         // _self.headerView = divisor.getHeader();
+    }
+
+    public getSigned() {
+        return this.signed;
+    }
+
+    public setSigned(signed) {
+        this.signed = signed;
     }
 
     public getTempUser() {
@@ -57,6 +67,30 @@ export class ControlSign extends AppObject {
     public publishSign(data) {
         this.subscribersSign.forEach((subscriber) => {
             subscriber(data);
+        });
+        this.subscribersSignOut.forEach((subscriber) => {
+            subscriber(!data);
+        });
+    }
+
+    public subscribeSignOut(callback) {
+        // we could check to see if it is already subscribed
+        this.subscribersSignOut.push(callback);
+        console.log(callback.name, 'has been subscribed to Sign');
+    }
+
+    public unsubscribeSignOut(callback) {
+        this.subscribersSignOut = this.subscribersSignOut.filter((element) => {
+            return element !== callback;
+        });
+    }
+
+    public publishSignOut(data) {
+        this.subscribersSignOut.forEach((subscriber) => {
+            subscriber(data);
+        });
+        this.subscribersSign.forEach((subscriber) => {
+            subscriber(!data);
         });
     }
 
@@ -89,14 +123,13 @@ export class ControlSign extends AppObject {
         if (data.sign !== undefined) {
             if (data.sign.user !== undefined) {
                 Util.getInstance().notificationNone();
-                Util.getInstance().goTo('signed');
-                Util.getInstance().refreshHeader();
+                Util.getInstance().goTo('home');
+                // Util.getInstance().refreshHeader();
                 Util.getInstance().getInfo(data.sign.user);
             } else if (data.sign.error !== undefined) {
                 Util.getInstance().notificationCustom(data.sign.error);
             }
-
-            controlSign.logged = data.sign.user;
+            controlSign.setSigned(data.sign.user)
             controlSign.publishSign(data.sign.user !== undefined);
         }
     }
@@ -111,12 +144,14 @@ export class ControlSign extends AppObject {
         this.socketIo.emit('signUp', log);
     }
 
-    public isSigned(){
-        console.log('isSigned');
-        return false;
+    public isSigned() {
+        return ((ControlSign.getInstance().getSigned() !== undefined) && (ControlSign.getInstance().getSigned() !== null));
     }
 
-    public signOut(){
+    public signOut() {
+        // this.socketIo.emit('signOut', {});
+        ControlSign.getInstance().setSigned(undefined);
+        ControlSign.getInstance().publishSignOut(((ControlSign.getInstance().getSigned() === undefined)||(ControlSign.getInstance().getSigned() === null)));
         console.log('signOut');
     }
 }

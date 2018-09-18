@@ -24,10 +24,11 @@ export class Header extends AppObject {
     }
 
     public isSignedOut(){
+        console.log('isNotLogged');
         return !ControlSign.getInstance().isSigned();
     }
 
-    public signOut(element){
+    public signOut(){
         ControlSign.getInstance().signOut();
     }
 
@@ -41,5 +42,17 @@ export class Header extends AppObject {
 
     public publishSign(data) {
         ControlSign.getInstance().publishSign(data);
+    }
+
+    public subscribeSignOut(callback) {
+        ControlSign.getInstance().subscribeSignOut(callback);
+    }
+
+    public unsubscribeSignOut(callback) {
+        ControlSign.getInstance().unsubscribeSignOut(callback);
+    }
+
+    public publishSignOut(data) {
+        ControlSign.getInstance().publishSignOut(data);
     }
 }

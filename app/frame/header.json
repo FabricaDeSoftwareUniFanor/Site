@@ -168,7 +168,7 @@
                                                         {
                                                             "name": "authorization",
                                                             "appObject": {},
-                                                            "subscribeFunction": "subscribeSign",
+                                                            "subscribeFunction": "subscribeSignOut",
                                                             "runFunction": "isSignedOut()",
                                                             "code": "Header"
                                                         }
@@ -198,7 +198,7 @@
                                                         {
                                                             "name": "authorization",
                                                             "appObject": {},
-                                                            "subscribeFunction": "subscribeSign",
+                                                            "subscribeFunction": "subscribeSignOut",
                                                             "runFunction": "isSignedOut()",
                                                             "code": "Header"
                                                         }
@@ -222,8 +222,13 @@
                                                     "arrayAppObjectEvent": [
                                                         {
                                                             "name": "click",
-                                                            "runFunction": "signOut(this)",
+                                                            "runFunction": "signOut()",
                                                             "code": "Header"
+                                                        },
+                                                        {
+                                                            "name": "router",
+                                                            "appObject":{},
+                                                            "link":"signIn"
                                                         },
                                                         {
                                                             "name": "authorization",

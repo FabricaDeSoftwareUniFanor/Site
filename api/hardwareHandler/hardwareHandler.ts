@@ -37,11 +37,12 @@ export class HardwareHandler extends BasicHardwareHandler {
         } else {
             basicUser.authentication.permission = Permission.User;
         }
+        console.log(basicUser);
 
         let newUser = new User(basicUser);
         newUser.arrayAddress = basicUser.arrayAddress;
         newUser.arrayPhone = basicUser.arrayPhone;
-        this.persistenceHandler.readArray('user', { 'username': newUser.username }, (error, data) => {
+        this.persistenceHandler.readArray('user', { 'email': newUser.email }, (error, data) => {
             _self.signUpCheck(newUser, data, socket);
         });
 
