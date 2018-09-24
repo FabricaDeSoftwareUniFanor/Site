@@ -2,21 +2,29 @@
     {
         "language":"en",
         "title":"SF",
-        "logoff":"Logoff"
+        "signIn":"Sign In",
+        "signUp":"Sign Up",
+        "signOut":"Sign Out"
     },
     {
         "language":"en-US",
         "title":"SF",
-        "logoff":"Logoff"
+        "signIn":"Sign In",
+        "signUp":"Sign Up",
+        "signOut":"Sign Out"
     },
     {
         "language":"pt",
         "title":"FS",
-        "logoff":"Logoff"
+        "signIn":"Login",
+        "signUp":"Registrar",
+        "signOut":"Logoff"
     },
     {
         "language":"pt-BR",
         "title":"FS",
-        "logoff":"Logoff"
+        "signIn":"Login",
+        "signUp":"Registrar",
+        "signOut":"Logoff"
     }
 ]
