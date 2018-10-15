@@ -29,19 +29,19 @@
   "dependencies": {
     "backapijh": "^0.2.63",
     "backappjh": "^0.2.68",
-    "dotenv": "^6.0.0",
+    "dotenv": "^6.1.0",
     "flexiblepersistence": "^1.0.22"
   },
   "devDependencies": {
-    "@types/webpack": "^4.4.11",
+    "@types/webpack": "^4.4.16",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^3.0.2",
-    "style-loader": "^0.23.0",
-    "typescript": "^3.0.3",
-    "uglifyjs-webpack-plugin": "^1.3.0",
-    "url-loader": "^1.1.1",
-    "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.0"
+    "style-loader": "^0.23.1",
+    "typescript": "^3.1.3",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   }
 }
