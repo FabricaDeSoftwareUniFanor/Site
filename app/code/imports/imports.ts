@@ -1,4 +1,4 @@
-import * as loader from './../onLoad/loader';
+import { loader } from 'backappjh';
 import { LanguageSettings } from '../view/languageSettings';
 import { SignIn } from '../view/signIn';
 import { Header } from '../view/header';
