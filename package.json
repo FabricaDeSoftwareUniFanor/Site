@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/FabricaDeSoftwareUniFanor/site#readme",
   "dependencies": {
-    "backapijh": "^0.2.63",
-    "backappjh": "^0.2.68",
+    "backapijh": "^0.2.64",
+    "backappjh": "^0.2.69",
     "dotenv": "^6.1.0",
     "flexiblepersistence": "^1.0.22"
   },
